@@ -16,8 +16,17 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  if (path !== "") {
+    if (path.includes("/") == true) {
+      let pathModified = path.split("/");
+      return pathModified[pathModified.length - 1];
+    } else {
+      return path;
+    }
+  } else {
+    return "";
+  }
 }
 
 /*
@@ -38,8 +47,16 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(sayiDizisi) {
+  if (sayiDizisi == "") {
+    return null;
+  }
+  const toplam = sayiDizisi.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  const ortalama = toplam / sayiDizisi.length;
+  return ortalama;
 }
 
 /*
@@ -62,8 +79,21 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(seri, ortalamaBul) {
+  let seriOrtalama = ortalamaBul(seri);
+  let ortBuyuk = [];
+  if (seriOrtalama === null) {
+    return null;
+  } else {
+    for (var i = 0; i < seri.length; i++) {
+      if (seri[i] >= seriOrtalama) {
+        ortBuyuk.push(seri[i]);
+      } else {
+        continue;
+      }
+    }
+  }
+  return ortBuyuk;
 }
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
